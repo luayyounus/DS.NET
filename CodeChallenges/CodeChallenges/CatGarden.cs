@@ -40,7 +40,6 @@ namespace CodeChallenges
                 if (i % 5 == 0)
                 {
                     Console.WriteLine();
-                    ;
                 }
                 c = c == 'x' ? charTwo : charOne;
             }
