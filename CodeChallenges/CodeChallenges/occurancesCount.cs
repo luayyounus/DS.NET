@@ -10,7 +10,7 @@ namespace CodeChallenges
         static void Main(string[] args)
         {
             int[] numArray = { 1, 1, 3, 3, 3, 4, 4, 5, 6, 6 };
-            PrintOccurances(numArray);
+            OccurancesAllEdgeCases(numArray);
             Console.ReadLine();
         }
 
@@ -34,6 +34,29 @@ namespace CodeChallenges
                 curr = input[++index];
             }
             Console.WriteLine($"{prev}:{++counter} occurances");
+        }
+
+        // int[] numArray = { 1, 1, 3, 3, 3, 4, 4, 5, 6, 6 , 1, 1 };
+
+        // Here I took care of all edge cases available
+        static void OccurancesAllEdgeCases(int[] input)
+        {
+            int counter = 0;
+            StringBuilder history = new StringBuilder();
+
+            foreach (int num in input)
+            {
+                if (history.ToString().Contains($"{num}")) continue;
+                int currentNumber = num;
+                foreach (int innerNum in input)
+                {
+                    if (num == innerNum)
+                        counter++;
+                }
+                history.Append(num);
+                Console.WriteLine($"{currentNumber} : {counter}");
+                counter = 0;
+            }
         }
     }
 }

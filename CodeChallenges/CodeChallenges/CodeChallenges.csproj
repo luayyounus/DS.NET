@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <StartupObject>CodeChallenges.Acronym</StartupObject>
+    <StartupObject>CodeChallenges.OccurancesCount</StartupObject>
   </PropertyGroup>
 
 </Project>
