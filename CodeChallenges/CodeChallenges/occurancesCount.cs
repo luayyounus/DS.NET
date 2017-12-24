@@ -9,7 +9,7 @@ namespace CodeChallenges
     {
         static void Main(string[] args)
         {
-            int[] numArray = { 1, 1, 3, 3, 3, 4, 4, 5, 6, 6 };
+            int[] numArray = { 1, 4, 4, 4, 4, 5, 6, 6, 6, 9, 9, 12, 1, 1, 4 };
             OccurancesAllEdgeCases(numArray);
             Console.ReadLine();
         }
@@ -35,8 +35,6 @@ namespace CodeChallenges
             }
             Console.WriteLine($"{prev}:{++counter} occurances");
         }
-
-        // int[] numArray = { 1, 1, 3, 3, 3, 4, 4, 5, 6, 6 , 1, 1 };
 
         // Here I took care of all edge cases available
         static void OccurancesAllEdgeCases(int[] input)
