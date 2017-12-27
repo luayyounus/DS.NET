@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CodeChallenges
 {
     // Kata on Code Wars https://www.codewars.com/kata/two-fighters-one-winner 
-    class Fighter
+    public class Fighter
     {
         public string Name;
         public int Health, DamagePerAttack;
@@ -17,7 +15,7 @@ namespace CodeChallenges
         }
     }
 
-    class DeclareWinner
+    public class DeclareWinner
     {
         private static void Main(string[] args)
         {
