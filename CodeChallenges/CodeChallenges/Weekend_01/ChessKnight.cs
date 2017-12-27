@@ -3,7 +3,7 @@
 namespace CodeChallenges
 {
     // Kata on Code Wars https://www.codewars.com/kata/chess-fun-number-3-chess-knight/csharp
-    class ChessKnight
+    public class ChessKnight
     {
         private static void Main(string[] args)
         {
@@ -16,7 +16,7 @@ namespace CodeChallenges
             Console.ReadLine();
         }
 
-        static int CheckPossibleMoves(string cell)
+        public static int CheckPossibleMoves(string cell)
         {
             int v = cell[0] - 96; // Converting ASCII char a to 1, b to 2 and such...
             int h = cell[1] - 48; // Converting ASCII char '1' to 1, '2' to 2 and such... 
@@ -24,25 +24,25 @@ namespace CodeChallenges
             int moves = 0;
 
             // Moving up
-            if (h + 2 <= 8 && v + 1 <= 8) moves++;
-            if (h + 2 <= 8 && v - 1 >= 1) moves++;
+            if (h + 2 <= 8 && h + 2 >= 1 && v + 1 <= 8 && v + 1 >= 1) moves++;
+            if (h + 2 <= 8 && h + 2 >= 1 && v - 1 <= 8 && v - 1 >= 1) moves++;
 
             // Moving down
-            if (h - 2 >= 1 && v + 1 <= 8) moves++;
-            if (h - 2 >= 1 && v - 1 >= 1) moves++;
+            if (h - 2 <= 8 && h - 2 >= 1 &&  v + 1 <= 8 && v + 1 >= 1) moves++;
+            if (h - 2 <= 8 && h - 2 >= 1 && v - 1 <= 8 && v - 1 >= 1) moves++;
             
             // Moving right
-            if (v + 2 <= 8 && h + 1 <= 8) moves++;
-            if (v + 2 <= 8 && h - 1 >= 1) moves++;
+            if (v + 2 <= 8 && v + 2 >= 1 && h + 1 <= 8 && h + 1 >= 1) moves++;
+            if (v + 2 <= 8 && v + 2 >= 1 && h - 1 <= 8 && h - 1 >= 1) moves++;
 
             // Moving left
-            if (v - 2 >= 1 && h + 1 <= 8) moves++;
-            if (v - 2 >= 1 && h - 1 >= 1) moves++;
+            if (v - 2 <= 8 && v - 2 >= 1 && h + 1 <= 8 && h + 1 >= 1) moves++;
+            if (v - 2 <= 8 && v - 2 >= 1 && h - 1 <= 8 && h - 1 >= 1) moves++;
 
             return moves;
         }
 
-        static int CheckPossibleMoves2(string cell)
+        public static int CheckPossibleMoves2(string cell)
         {
             int x = cell[0] - 96;
             int y = cell[1] - 48;
