@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CodeChallenges
 {
@@ -10,8 +7,12 @@ namespace CodeChallenges
     {
         private static void Main(string[] args)
         {
-            int result = CheckPossibleMoves("a4");
-            Console.WriteLine($"Number of possible moves: {result}");
+            int test1 = CheckPossibleMoves("a4");
+            Console.WriteLine($"Number of possible moves: {test1}");
+
+            int test2 = CheckPossibleMoves2("a4");
+            Console.WriteLine($"Number of possible moves: {test2}");
+
             Console.ReadLine();
         }
 
@@ -39,6 +40,31 @@ namespace CodeChallenges
             if (v - 2 >= 1 && h - 1 >= 1) moves++;
 
             return moves;
+        }
+
+        static int CheckPossibleMoves2(string cell)
+        {
+            int x = cell[0] - 96;
+            int y = cell[1] - 48;
+
+            int[][] allPossibleMoves = {
+                new int[] {x + 2, y - 1},
+                new int[] {x + 2, y + 1},
+                new int[] {x - 2, y - 1},
+                new int[] {x - 2, y + 1},
+                new int[] {x + 1, y - 2},
+                new int[] {x + 1, y + 2},
+                new int[] {x - 1, y - 2},
+                new int[] {x - 1, y + 2}
+            };
+
+            int movesCount = 0;
+            foreach (int[] move in allPossibleMoves)
+            {
+                movesCount += (move[0] >= 1 && move[0] <= 8 && move[1] >= 1 && move[1] <= 8) ? 1 : 0;
+            }
+
+            return movesCount;
         }
     }
 }
