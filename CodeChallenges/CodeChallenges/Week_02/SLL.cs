@@ -79,7 +79,7 @@ namespace CodeChallenges.Week_02
             }
         }
 
-        // Add a value before a targeted-value if found, otherwise print out a message and return
+        // Add a value after a targeted-value if found, otherwise print out a message and return
         public void AddAfter(int value, int targetedValue)
         {
             if (Head == null)
@@ -111,9 +111,42 @@ namespace CodeChallenges.Week_02
                     current = current.Next;
                     previous = previous.Next;
                 }
-                Console.WriteLine("Targeted value is not found!");
+            }
+            Console.WriteLine("Targeted value is not found!");
+        }
+
+        // Remove a targeted Node with certain value
+        public void RemoveNode(int targetedValue)
+        {
+            if(Head != null)
+            {
+                Console.WriteLine("Head is not found");
                 return;
             }
+
+            if(Head.Value == targetedValue)
+            {
+                Head = Head.Next;
+                return;
+            }
+            if(Head.Next != null)
+            {
+                SLLNode current = Head.Next;
+                SLLNode prev = Head;
+                while(current != null)
+                {
+                    if(current.Value == targetedValue)
+                    {
+                        SLLNode temp = current.Next;
+                        current = null;
+                        prev.Next = temp;
+                        return;
+                    }
+                    current = current.Next;
+                    prev = prev.Next;
+                }
+            }
+            Console.WriteLine("Targeted value is not found!");
         }
     }
 }
