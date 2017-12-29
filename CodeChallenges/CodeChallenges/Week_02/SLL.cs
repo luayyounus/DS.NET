@@ -9,20 +9,29 @@ namespace CodeChallenges.Week_02
         public SLLNode Head = new SLLNode();
 
         // Adding int value to the first position in a LinkedList
-        public SLLNode AddFirst(int value)
+        public void AddFirst(int value)
         {
             SLLNode newNode = new SLLNode { Value = value };
-            if (Head == null) return newNode;
+            if (Head == null)
+            {
+                Head = newNode;
+                return;
+            }
             newNode.Next = Head;
             Head = newNode;
-            return Head;
+            return;
         }
 
         // Add int to the Last positing in a Linked List
-        public SLLNode AddLast(int value)
+        public void AddLast(int value)
         {
             SLLNode newNode = new SLLNode();
-            if (Head == null) return newNode;
+            if (Head == null)
+            {
+                Head = newNode;
+                return;
+            }
+
             SLLNode current = Head;
 
             while (current.Next != null)
@@ -31,8 +40,6 @@ namespace CodeChallenges.Week_02
             }
 
             current.Next = newNode;
-
-            return Head;
         }
     }
 }
