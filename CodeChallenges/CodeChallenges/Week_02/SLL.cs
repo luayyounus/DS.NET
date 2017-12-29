@@ -42,6 +42,7 @@ namespace CodeChallenges.Week_02
             current.Next = newNode;
         }
 
+        // Add a value before a targeted-value if found, otherwise print out a message and return
         public void AddBefore(int value, int targetedValue)
         {
             if (Head == null)
@@ -65,6 +66,43 @@ namespace CodeChallenges.Week_02
                 while(current != null)
                 {
                     if(current.Value == targetedValue)
+                    {
+                        previous.Next = newNode;
+                        newNode.Next = current;
+                        return;
+                    }
+                    current = current.Next;
+                    previous = previous.Next;
+                }
+                Console.WriteLine("Targeted value is not found!");
+                return;
+            }
+        }
+
+        // Add a value before a targeted-value if found, otherwise print out a message and return
+        public void AddAfter(int value, int targetedValue)
+        {
+            if (Head == null)
+            {
+                Console.WriteLine("Head is null");
+                return;
+            }
+
+            SLLNode newNode = new SLLNode();
+            if (Head.Value == targetedValue)
+            {
+                newNode.Next = Head;
+                Head = newNode;
+                return;
+            }
+
+            if (Head.Next != null)
+            {
+                SLLNode current = Head.Next;
+                SLLNode previous = Head;
+                while (previous != null)
+                {
+                    if (previous.Value == targetedValue)
                     {
                         previous.Next = newNode;
                         newNode.Next = current;
