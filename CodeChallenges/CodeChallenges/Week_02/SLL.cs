@@ -41,5 +41,41 @@ namespace CodeChallenges.Week_02
 
             current.Next = newNode;
         }
+
+        public void AddBefore(int value, int targetedValue)
+        {
+            if (Head == null)
+            {
+                Console.WriteLine("Head is null");
+                return;
+            }
+
+            SLLNode newNode = new SLLNode();
+            if (Head.Value == targetedValue)
+            {
+                newNode.Next = Head;
+                Head = newNode;
+                return;
+            }
+
+            if(Head.Next != null)
+            {
+                SLLNode current = Head.Next;
+                SLLNode previous = Head;
+                while(current != null)
+                {
+                    if(current.Value == targetedValue)
+                    {
+                        previous.Next = newNode;
+                        newNode.Next = current;
+                        return;
+                    }
+                    current = current.Next;
+                    previous = previous.Next;
+                }
+                Console.WriteLine("Targeted value is not found!");
+                return;
+            }
+        }
     }
 }
