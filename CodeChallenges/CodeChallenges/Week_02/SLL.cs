@@ -17,5 +17,22 @@ namespace CodeChallenges.Week_02
             Head = newNode;
             return Head;
         }
+
+        // Add int to the Last positing in a Linked List
+        public SLLNode AddLast(int value)
+        {
+            SLLNode newNode = new SLLNode();
+            if (Head == null) return newNode;
+            SLLNode current = Head;
+
+            while (current.Next != null)
+            {
+                current = current.Next;
+            }
+
+            current.Next = newNode;
+
+            return Head;
+        }
     }
 }
