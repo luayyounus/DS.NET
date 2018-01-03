@@ -148,5 +148,20 @@ namespace CodeChallenges.Week_02
             }
             Console.WriteLine("Targeted value is not found!");
         }
+
+        public SLLNode GetMiddle()
+        {
+            if (Head == null) return Head;
+
+            SLLNode walker = Head;
+            SLLNode runner = Head;
+
+            while (runner.Next.Next != null)
+            {
+                walker = walker.Next;
+                runner = runner.Next;
+            }
+            return walker;
+        }
     }
 }
