@@ -159,27 +159,35 @@ namespace CodeChallenges.Week_02
             SLLNode walker = Head;
             SLLNode runner = Head;
 
-            while (runner.Next.Next != null)
+            while (runner.Next != null)
             {
-                walker = walker.Next;
                 runner = runner.Next;
+                if (runner.Next != null)
+                {
+                    runner = runner.Next;
+                    walker = walker.Next;
+                }
             }
             return walker;
         }
 
         public SLLNode GetNodeFromEnd(int nth)
         {
-            if (Head == null) return Head;
+            if (Head == null) return null;
+
             SLLNode walker = Head;
             SLLNode sleeper = Head;
-            int count = 1;
-            while (walker == null)
+
+            int count = 0;
+            while (walker != null)
             {
-                walker = walker?.Next;
-                if (nth - count == 0)
+                walker = walker.Next;
+                if (count == nth)
                 {
                     sleeper = sleeper.Next;
+                    nth++;
                 }
+                count++;
             }
             return sleeper; 
         }
