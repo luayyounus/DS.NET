@@ -12,6 +12,7 @@ namespace CodeChallenges.Week_02
             
             Console.WriteLine("Add First");
             sll.AddFirst(4);
+            sll.AddFirst(2);
             sll.AddFirst(5);
             PrintLinked(sll.Head);
 
@@ -36,7 +37,7 @@ namespace CodeChallenges.Week_02
             SLLNode middle = sll.GetMiddle();
             Console.WriteLine(middle.Value);
 
-            Console.WriteLine("Get Node nth from the End");
+            Console.WriteLine("Get 3rd Node from the End");
             SLLNode nth = sll.GetNodeFromEnd(3);
             Console.WriteLine(nth.Value);
 
