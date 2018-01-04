@@ -6,7 +6,7 @@ namespace CodeChallenges.Week_02
 {
     public class SLL
     {
-        public SLLNode Head = new SLLNode();
+        public SLLNode Head = null;
 
         // Adding int value to the first position in a LinkedList
         public void AddFirst(int value)
@@ -26,6 +26,7 @@ namespace CodeChallenges.Week_02
         public void AddLast(int value)
         {
             SLLNode newNode = new SLLNode();
+            newNode.Value = value;
             if (Head == null)
             {
                 Head = newNode;
@@ -38,7 +39,6 @@ namespace CodeChallenges.Week_02
             {
                 current = current.Next;
             }
-
             current.Next = newNode;
         }
 
@@ -52,6 +52,8 @@ namespace CodeChallenges.Week_02
             }
 
             SLLNode newNode = new SLLNode();
+            newNode.Value = value;
+
             if (Head.Value == targetedValue)
             {
                 newNode.Next = Head;
@@ -75,7 +77,6 @@ namespace CodeChallenges.Week_02
                     previous = previous.Next;
                 }
                 Console.WriteLine("Targeted value is not found!");
-                return;
             }
         }
 
@@ -89,6 +90,8 @@ namespace CodeChallenges.Week_02
             }
 
             SLLNode newNode = new SLLNode();
+            newNode.Value = value;
+
             if (Head.Value == targetedValue)
             {
                 newNode.Next = Head;
@@ -118,7 +121,7 @@ namespace CodeChallenges.Week_02
         // Remove a targeted Node with certain value
         public void RemoveNode(int targetedValue)
         {
-            if(Head != null)
+            if(Head == null)
             {
                 Console.WriteLine("Head is not found");
                 return;
@@ -162,6 +165,23 @@ namespace CodeChallenges.Week_02
                 runner = runner.Next;
             }
             return walker;
+        }
+
+        public SLLNode GetNodeFromEnd(int nth)
+        {
+            if (Head == null) return Head;
+            SLLNode walker = Head;
+            SLLNode sleeper = Head;
+            int count = 1;
+            while (walker == null)
+            {
+                walker = walker?.Next;
+                if (nth - count == 0)
+                {
+                    sleeper = sleeper.Next;
+                }
+            }
+            return sleeper; 
         }
     }
 }
