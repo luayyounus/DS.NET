@@ -43,5 +43,25 @@ namespace CodeChallenges.Week_03
             current.Next = newNode;
             newNode.Prev = current;
         }
+
+        // Add item before targeted number
+        public void AddBefore(int n, int target)
+        {
+            if (Head == null) return;
+            DLLNode newNode = new DLLNode { Val = n };
+            DLLNode current = Head;
+            while (current != null)
+            {
+                if (current.Val == target)
+                {
+                    newNode.Prev = current.Prev;
+                    current.Prev.Next = newNode;
+                    newNode.Next = current;
+                    current.Prev = newNode;
+                    return;
+                }
+                current = current.Next;
+            }
+        }
     }
 }
