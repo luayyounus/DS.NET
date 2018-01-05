@@ -28,6 +28,11 @@ namespace CodeChallenges.Week_03
             dll.AddAfter(7, 9);
             PrintLinked(dll.Head);
 
+            Console.WriteLine("Remove 7");
+            dll.Remove(7);
+            dll.Remove(5);
+            PrintLinked(dll.Head);
+
             Console.ReadLine();
         }
 

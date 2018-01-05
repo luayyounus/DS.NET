@@ -84,5 +84,32 @@ namespace CodeChallenges.Week_03
                 current = current.Next;
             }
         }
+
+        // Remove item from Doubly Linked List
+        public void Remove(int n)
+        {
+            if (Head == null) return;
+            if (Head.Val == n)
+            {
+                Head = Head.Next;
+                return;
+            }
+            DLLNode curr = Head;
+            while (curr.Next != null)
+            {
+                curr = curr.Next;
+                if (curr.Val != n) continue;
+                if (curr.Next != null)
+                {
+                    curr.Next.Prev = curr.Prev;
+                }
+                if (curr.Prev != null)
+                {
+                    curr.Prev.Next = curr.Next;
+                }
+                return;
+            }
+            Console.WriteLine("Not Found");
+        }
     }
 }
