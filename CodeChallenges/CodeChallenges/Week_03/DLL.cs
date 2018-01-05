@@ -24,5 +24,24 @@ namespace CodeChallenges.Week_03
             Head = newNode;
         }
 
+        // Add last item to the linkedlist
+        public void AddLast(int n)
+        {
+            DLLNode newNode = new DLLNode {Val = n};
+
+            if (Head == null)
+            {
+                Head = newNode;
+                return;
+            }
+            DLLNode current = Head;
+            while (current.Next != null)
+            {
+                current = current.Next;
+            }
+
+            current.Next = newNode;
+            newNode.Prev = current;
+        }
     }
 }

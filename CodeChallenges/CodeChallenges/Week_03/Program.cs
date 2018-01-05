@@ -15,6 +15,11 @@ namespace CodeChallenges.Week_03
             dll.AddFirst(5);
             PrintLinked(dll.Head);
 
+            Console.WriteLine("Add Last");
+            dll.AddLast(3);
+            dll.AddLast(9);
+            PrintLinked(dll.Head);
+
             Console.ReadLine();
         }
 
