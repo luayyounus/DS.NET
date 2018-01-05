@@ -20,8 +20,12 @@ namespace CodeChallenges.Week_03
             dll.AddLast(9);
             PrintLinked(dll.Head);
 
-            Console.WriteLine("Add Before 3");
+            Console.WriteLine("Add 8 Before 3");
             dll.AddBefore(8, 3);
+            PrintLinked(dll.Head);
+
+            Console.WriteLine("Add 7 After 9");
+            dll.AddAfter(7, 9);
             PrintLinked(dll.Head);
 
             Console.ReadLine();

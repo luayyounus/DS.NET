@@ -63,5 +63,26 @@ namespace CodeChallenges.Week_03
                 current = current.Next;
             }
         }
+
+        // Add item after targeted number
+        public void AddAfter(int n, int target)
+        {
+            if (Head == null) return;
+            DLLNode newNode = new DLLNode { Val = n };
+            DLLNode current = Head;
+            while (current != null)
+            {
+                if (current.Val == target)
+                {
+                    if (current.Next != null)
+                        current.Next.Prev = newNode;
+                    newNode.Next = current.Next;
+                    current.Next = newNode;
+                    newNode.Prev = current;
+                    return;
+                }
+                current = current.Next;
+            }
+        }
     }
 }
