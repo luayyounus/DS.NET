@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CodeChallenges.NumberIsPrime
+namespace CodeChallenges.Weekend_02_03
 {
     public static class PrimeDecop
     {
@@ -44,12 +44,3 @@ namespace CodeChallenges.NumberIsPrime
         }
     }
 }
-
-//int boundary = (int)Math.Ceiling(Math.Sqrt(lst));
-//if (lst == 2)
-//{
-//    factors.Add(2, 1);
-//}
-//else
-//{
-//}
