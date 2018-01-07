@@ -12,6 +12,8 @@ namespace CodeChallenges.Weekend_02_03
             string result = PlayPassphrase("MY GRANMA CAME FROM NY ON THE 23RD OF APRIL 2015", 2);
             Console.WriteLine(result);
             
+            Console.WriteLine(Math.Sqrt(9));
+
             Console.Read();
         }
 
