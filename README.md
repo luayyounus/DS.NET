@@ -3,7 +3,7 @@ My solutions to different code challenges, easy to hard level katas using differ
 
 <table>
 <tr>
-<th> Code Wars </th> 
+<th> Code Wars </th>
 </tr>
 
 <tr><td>
@@ -19,7 +19,33 @@ My solutions to different code challenges, easy to hard level katas using differ
 </td></tr>
 
 
-<th> Miscellaneous Code Challenges </th> 
+<th> Singly Linked List </th>
+<tr><td>
+
+| Problems    |    |
+| ----------- |----|
+| AddFirst    | [One Solution](https://github.com/luayyounus/DS.NET/blob/master/CodeChallenges/CodeChallenges/Week_02/SLL.cs) |
+| AddBefore   |    |
+| AddAfter    |    |
+| AddLast     |    |
+| RemoveNode  |    |
+| GetMiddle   |    |
+| GetNFromEnd |    |
+</td></tr>
+
+<th> Doubly Linked List </th>
+<tr><td>
+
+| Problems    |    |
+| ----------- |----|
+| AddFirst    | [One Solution](https://github.com/luayyounus/DS.NET/blob/master/CodeChallenges/CodeChallenges/Week_03/DLL.cs) |
+| AddBefore   |    |
+| AddAfter    |    |
+| AddLast     |    |
+| RemoveNode  |    |
+</td></tr>
+
+<th> Miscellaneous Code Challenges </th>
 <tr><td>
 
 |   Name                         |  Solution |
@@ -29,3 +55,4 @@ My solutions to different code challenges, easy to hard level katas using differ
 | CatGarden | [Solution](https://github.com/luayyounus/DS.NET/blob/master/CodeChallenges/CodeChallenges/Week_01/CatGarden.cs)|
 | ReverseAString | [Solution](https://github.com/luayyounus/DS.NET/blob/master/CodeChallenges/CodeChallenges/Week_01/ReverseString.cs)|
 | OccurancesCount | [Solution](https://github.com/luayyounus/DS.NET/blob/master/CodeChallenges/CodeChallenges/Week_01/occurancesCount.cs)|
+</td></tr>
