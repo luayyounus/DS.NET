@@ -6,7 +6,7 @@ namespace CodeChallenges.Week_04.Stack
 {
     public class Stack
     {
-        public StackNode Head = null;
+        public StackNode Head;
 
         public void Push(int n)
         {
