@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace CodeChallenges.Weekend_02_03
 {
+    // Kata on Code Wars https://www.codewars.com/kata/is-my-friend-cheating/csharp
     public class IsMyFriendCheating
     {
         public static void Main(string[] args)
