@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CodeChallenges.Weekend_02_03
 {
+    // Kata on Code Wars https://www.codewars.com/kata/replace-with-alphabet-position/csharp
     class ReplaceWithAlphabetPosition
     {
         public static void Main(string[] args)
@@ -17,7 +18,6 @@ namespace CodeChallenges.Weekend_02_03
             Console.Read();
         }
 
-        // 6 kyu kata
         public static string AlphabetPosition(string text)
         {
             StringBuilder sb = new StringBuilder();

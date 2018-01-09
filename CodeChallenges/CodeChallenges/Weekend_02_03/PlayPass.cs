@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CodeChallenges.Weekend_02_03
 {
+    // Kata on Code Wars https://www.codewars.com/kata/playing-with-passphrases/train/csharp
     class PlayPass
     {
         public static void Main(string[] args)
@@ -17,7 +18,6 @@ namespace CodeChallenges.Weekend_02_03
             Console.Read();
         }
 
-        // Kata https://www.codewars.com/kata/playing-with-passphrases/train/csharp
         public static string PlayPassphrase(string s, int n)
         {
             char[] complement = new[] { '9', '8', '7', '6', '5', '4', '3', '2', '1', '0'};

@@ -4,6 +4,7 @@ using System.Text;
 
 namespace CodeChallenges.Weekend_02_03
 {
+    // Kata on Code Wars https://www.codewars.com/kata/primes-in-numbers/csharp
     public static class PrimeDecop
     {
         public static void Main(string[] args)
@@ -13,7 +14,6 @@ namespace CodeChallenges.Weekend_02_03
             Console.ReadLine();
         }
 
-        // 5 kyu
         public static string Factors(int lst)
         {
             Dictionary<int, int> factors = new Dictionary<int, int>();
