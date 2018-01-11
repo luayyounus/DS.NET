@@ -12,6 +12,7 @@ namespace CodeChallenges.Week_04.Queue
         public void Enqueue(int n)
         {
             QNode newNode = new QNode { Value = n };
+
             if (Head == null)
             {
                 Head = newNode;
@@ -26,6 +27,10 @@ namespace CodeChallenges.Week_04.Queue
         {
             QNode dequeuedNode = Head;
             Head = Head.Next;
+            if (Head == null)
+            {
+                Tail = null;
+            }
             return dequeuedNode;
         }
 
