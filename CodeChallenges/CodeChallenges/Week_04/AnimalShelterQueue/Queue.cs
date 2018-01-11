@@ -9,13 +9,16 @@ namespace CodeChallenges.Week_04.AnimalShelterQueue
         public QNode Head = null;
         public QNode Tail = null;
 
+
         public void Enqueue(string animal)
         {
             QNode newNode = new QNode { AnimalName = animal };
+
             if (Head == null)
             {
                 Head = newNode;
                 Tail = Head;
+                return;
             }
             Tail.Next = newNode;
             Tail = newNode;
@@ -23,94 +26,51 @@ namespace CodeChallenges.Week_04.AnimalShelterQueue
 
         public QNode Dequeue_Any()
         {
-            if (Head == null) return null;
-            QNode animalToReturn = Head;
-            if (Head.Next == null)
+            QNode anyAnimal = Head;
+            Head = Head.Next;
+            if (Head == null)
             {
                 Tail = null;
-                Head = null;
-                return animalToReturn;
             }
-            Head = Head.Next;
-            return animalToReturn;
+            return anyAnimal;
         }
 
         public QNode Dequeue_Dog()
         {
-            if (Head == null) return null;
-            if (Head.AnimalName == "dog")
+            QNode dequeuedDog = Dequeue_Any();
+            QNode tempDog = null;
+            while (dequeuedDog != Tail)
             {
-                QNode dog = Head;
-                if (Tail == Head)
+                if (dequeuedDog.AnimalName == "dog")
                 {
-                    Head = null;
-                    Tail = null;
-                    return dog;
+                    tempDog = dequeuedDog;
+                    dequeuedDog = Dequeue_Any();
+                    continue;
                 }
-                Head = Head.Next;
-                return dog;
+                Enqueue(dequeuedDog.AnimalName);
+                dequeuedDog = Dequeue_Any();
             }
-            if (Head.Next == null)
-            {
-                return null;
-            }
-            QNode current = Head.Next;
-            QNode prev = Head;
-            while (current != null)
-            {
-                if (current.AnimalName == "dog")
-                {
-                    QNode dog = current;
-                    if (current == Tail)
-                    {
-                        Tail = prev;
-                    }
-                    prev.Next = current.Next;
-                    return dog;
-                }
-                current = current.Next;
-                prev = prev.Next;
-            }
-            return null;
+
+            return tempDog;
         }
 
         public QNode Dequeue_Cat()
         {
-            if (Head == null) return null;
-            if (Head.AnimalName == "cat")
+            QNode dequeuedCat = Dequeue_Any();
+            QNode tempCat = null;
+            while (dequeuedCat != Tail)
             {
-                QNode cat = Head;
-                if (Tail == Head)
+                if (dequeuedCat.AnimalName == "cat")
                 {
-                    Head = null;
-                    Tail = null;
-                    return cat;
+                    tempCat = dequeuedCat;
+                    dequeuedCat = Dequeue_Any();
+                    continue;
                 }
-                Head = Head.Next;
-                return cat;
+                Enqueue(dequeuedCat.AnimalName);
+                dequeuedCat = Dequeue_Any();
             }
-            if (Head.Next == null)
-            {
-                return null;
-            }
-            QNode current = Head.Next;
-            QNode prev = Head;
-            while (current != null)
-            {
-                if (current.AnimalName == "cat")
-                {
-                    QNode cat = current;
-                    if (current == Tail)
-                    {
-                        Tail = prev;
-                    }
-                    prev.Next = current.Next;
-                    return cat;
-                }
-                current = current.Next;
-                prev = prev.Next;
-            }
-            return null;
+
+            return tempCat;
         }
     }
 }
