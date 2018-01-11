@@ -16,6 +16,7 @@ namespace CodeChallenges.Week_04.Queue
             {
                 Head = newNode;
                 Tail = Head;
+                return;
             }
             Tail.Next = newNode;
             Tail = newNode;
