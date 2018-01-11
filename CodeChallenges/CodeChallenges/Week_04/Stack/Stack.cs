@@ -18,9 +18,11 @@ namespace CodeChallenges.Week_04.Stack
             Head = newNode;
         }
 
-        public void Pop()
+        public StackNode Pop()
         {
+            StackNode poppedNode = Head;
             Head = Head?.Next;
+            return poppedNode;
         }
 
         public StackNode Peek()
