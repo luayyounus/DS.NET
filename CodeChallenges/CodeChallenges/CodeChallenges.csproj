@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <StartupObject>CodeChallenges.Week_04.EqualBrackets</StartupObject>
+    <StartupObject>CodeChallenges.Week_04.AnimalShelterQueue.Program</StartupObject>
     <AssemblyName>c</AssemblyName>
   </PropertyGroup>
 
