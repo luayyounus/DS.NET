@@ -9,6 +9,9 @@ namespace AmazonPractice
         {
             string a = "hello world!";
 
+            // 4 - Number to Words
+            string resultWords = NumberToWords(500);
+
             // 3 - Reverse Words in String in O(1) no extra space
             char[] result3 = ReverseWords(a.ToCharArray());
 
@@ -17,8 +20,61 @@ namespace AmazonPractice
 
             // 1 - First Unique Character in a String
             int result = ReturnFirstUniqueChar("hello");
+
+
             Console.ReadLine();
         }
+
+        // 4 - Number to Words
+        public static string NumberToWords(int number)
+        {
+            if (number == 0)
+                return "zero";
+
+            if (number < 0)
+                return "minus " + NumberToWords(Math.Abs(number));
+
+            string words = "";
+
+            if ((number / 1000000) > 0)
+            {
+                words += NumberToWords(number / 1000000) + " million ";
+                number %= 1000000;
+            }
+
+            if ((number / 1000) > 0)
+            {
+                words += NumberToWords(number / 1000) + " thousand ";
+                number %= 1000;
+            }
+
+            if ((number / 100) > 0)
+            {
+                words += NumberToWords(number / 100) + " hundred ";
+                number %= 100;
+            }
+
+            if (number > 0)
+            {
+                if (words != "")
+                    words += "and ";
+
+                var unitsMap = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+                var tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+
+                if (number < 20)
+                    words += unitsMap[number];
+                else
+                {
+                    words += tensMap[number / 10];
+                    if ((number % 10) > 0)
+                        words += "-" + unitsMap[number % 10];
+                }
+            }
+
+            return words;
+        }
+
 
         // 3 - Took me 7 Minutes
         public static char[] ReverseWords(char[] str)
@@ -78,7 +134,7 @@ namespace AmazonPractice
             }
             return input;
         }
-        
+
 
         // 1 - Took me 12 minutes
         static int ReturnFirstUniqueChar(string s)
