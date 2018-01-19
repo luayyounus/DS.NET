@@ -7,8 +7,7 @@ namespace AmazonPractice
     {
         static void Main(string[] args)
         {
-            string a = "hello world!";
-
+            string a = "Hello World!";
             // 4 - Number to Words
             string resultWords = NumberToWords(500);
 
@@ -22,7 +21,49 @@ namespace AmazonPractice
             int result = ReturnFirstUniqueChar("hello");
 
 
+            //double temp = 332.23;
+            //double mo = temp % 1;
+            //int afterDot = (int)(mo * 100);
+            //Console.WriteLine(afterDot);
+
+            //string s = "1,5,7";
+            //string[] resul = s.Split(',');
+            //int[] nums = Array.ConvertAll(resul, int.Parse);
+
+            //Console.WriteLine(resul[0]);
+
+            int result4 = CompareVersion("1.01", "1.0");
+            Console.WriteLine(result4);
+
+
             Console.ReadLine();
+        }
+
+        // return compareto result 1 or -1 or 0
+        /// int compare = Math.Sign(v1.CompareTo(v2));
+        // int result = (((x - y) >> 0x1F) | (int)((uint)(-(x - y)) >> 0x1F));
+
+        public static int CompareVersion(string version1, string version2)
+        {
+            string[] versionOne = version1.Split('.');
+            string[] versionTwo = version2.Split('.');
+
+            int length = Math.Max(versionOne.Length, versionTwo.Length);
+            for (int i = 0; i < length; i++)
+            {
+                string v1 = i < versionOne.Length ? versionOne[i] : "0";
+                string v2 = i < versionTwo.Length ? versionTwo[i] : "0";
+
+                for (int j = 0; j < v1.Length; j++)
+                {
+                    int one = (int) char.GetNumericValue(v1[j]);
+                    int two = (int) char.GetNumericValue(v2[j]);
+                    if (one > two) return 1;
+                    if (one < two) return -1;
+                }
+            }
+
+            return 0;
         }
 
         // 4 - Number to Words
