@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AmazonPractice
 {
@@ -7,11 +9,31 @@ namespace AmazonPractice
     {
         static void Main(string[] args)
         {
-            string a = "Hello World!";
+
+            // 7 - Nested Array - check if banana exists more than once
+            //"banana", "peach", { "potato", "banana" }, "pine", "apple"
+            List<string> one = new List<string> {"tomato"};
+            List<string> two = new List<string> { "peach" };
+            List<string> three = new List<string> { "potato", "banana" };
+            List<string> four = new List<string> { "pine" };
+            List<string> five = new List<string> { "apple" };
+
+            List<List<string>> gro = new List<List<string>>() {one, two, three, four, five};
+            var doubleGro = NestedList(gro);
+
+            // 6 - Sum linked lists
+            var sum1 = MaximumSizeSubarraySumEqualsK.MaxSubArrayLen(new[] { 1, -1, 5, -2, 3 }, 3);
+            // Another solution but Faster with one loop
+            var sum2 = MaximumSizeSubarraySumEqualsK.MaxSubArrayLengthFaster(new[] { 1, -1, 5, -2, 3 }, 3);
+
+            // 5  - Compare version
+            int result4 = CompareVersion("1.01", "1.0");
+
             // 4 - Number to Words
             string resultWords = NumberToWords(500);
 
             // 3 - Reverse Words in String in O(1) no extra space
+            string a = "Hello World!";
             char[] result3 = ReverseWords(a.ToCharArray());
 
             // 2 - Reverse a string
@@ -20,29 +42,78 @@ namespace AmazonPractice
             // 1 - First Unique Character in a String
             int result = ReturnFirstUniqueChar("hello");
 
-
-            //double temp = 332.23;
-            //double mo = temp % 1;
-            //int afterDot = (int)(mo * 100);
-            //Console.WriteLine(afterDot);
-
-            //string s = "1,5,7";
-            //string[] resul = s.Split(',');
-            //int[] nums = Array.ConvertAll(resul, int.Parse);
-
-            //Console.WriteLine(resul[0]);
-
-            int result4 = CompareVersion("1.01", "1.0");
-            Console.WriteLine(result4);
-
-
             Console.ReadLine();
         }
 
-        // return compareto result 1 or -1 or 0
-        /// int compare = Math.Sign(v1.CompareTo(v2));
-        // int result = (((x - y) >> 0x1F) | (int)((uint)(-(x - y)) >> 0x1F));
+        public void Notes()
+        {
+            // ---------------- NOTES ----------------
+            // return comparetor result 1 if positive OR -1 if negative OR 0 if they equal to zero
+            int v1 = -23;
+            int v2 = 543;
+            int compare = Math.Sign(v1.CompareTo(v2));
+            int result = (((v1 - v2) >> 0x1F) | (int)((uint)(-(v1 - v2)) >> 0x1F));
 
+
+            // playing with numbers after the the dot 13.53 - remaining
+            double temp = 332.23;
+            double mo = temp % 1;
+            int afterDot = (int)(mo * 100);
+
+            // playing with Split
+            string s = "1,5,7";
+            string[] resul = s.Split(',');
+
+
+            // playing with obj
+            object obj = new List<int>();
+
+            // checking if the objectg is a list
+            if (obj is IList && obj.GetType().IsGenericType &&
+                obj.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>)))
+            {
+                Console.WriteLine("it is !!!");
+            }
+
+
+            // Seperating strings by space or coma space
+            List<string> names = new List<string>() { "John", "Anna", "Monica" };
+            var delimitedString = String.Join(", ", names.ToArray());
+        }
+
+        // 7 - Nested List { {"banana"}, {"apple"}, { "peach", "pine" }, {"apple"}, {"banana"}}
+        public static bool NestedList(List<List<string>> grocerry)
+        {
+            bool isRepeated = false;
+            Queue<string> q = new Queue<string>();
+
+            // Flattening the nested list (2D list into one queue)
+            foreach (List<string> innerList in grocerry)
+            {
+                if (innerList.Count > 1)
+                {
+                    foreach (string fruit in innerList)
+                    {
+                        q.Enqueue(fruit);
+                    }
+                }
+                else
+                {
+                    q.Enqueue(innerList[0]);
+                }
+            }
+
+            while (q.Any())
+            {
+                string tempFruit = q.Dequeue();
+                if (tempFruit != "banana") continue;
+                isRepeated = true;
+                break;
+            }
+            return isRepeated;
+        }
+
+        // 5 - compare program version 1.0 bigger than 1.3 and so....
         public static int CompareVersion(string version1, string version2)
         {
             string[] versionOne = version1.Split('.');
@@ -56,10 +127,10 @@ namespace AmazonPractice
 
                 for (int j = 0; j < v1.Length; j++)
                 {
-                    int one = (int) char.GetNumericValue(v1[j]);
-                    int two = (int) char.GetNumericValue(v2[j]);
-                    if (one > two) return 1;
-                    if (one < two) return -1;
+                    int one = (int)char.GetNumericValue(v1[j]);
+                    //int two = (int)char.GetNumericValue(v2[j]);
+                    //if (one > two) return 1;
+                    //if (one < two) return -1;
                 }
             }
 
