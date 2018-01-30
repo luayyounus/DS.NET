@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <StartupObject>CodeChallenges.Week_04.AnimalShelterQueue.Program</StartupObject>
+    <StartupObject>CodeChallenges.Weekend_02_03.ReplaceWithAlphabetPosition</StartupObject>
     <AssemblyName>c</AssemblyName>
   </PropertyGroup>
 

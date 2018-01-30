@@ -4,8 +4,14 @@ using System.Text;
 
 namespace CodeChallenges.NumberIsPrime
 {
-    class SimpleNumberIsPrime
+    public class SimpleNumberIsPrime
     {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine(IsPrime(3));
+            Console.ReadLine();
+        }
+
         //Using Soner routine, but we will run until i is equal to Math.Ceiling(Math.Sqrt(number)) that is the trick for the naive solution
         public static bool isPrime(int number)
         {
