@@ -9,6 +9,42 @@ namespace AmazonPractice
     {
         static void Main(string[] args)
         {
+            Movie mOne = new Movie() {Name = "Titanic", Rate = 3};
+            Movie mTwo = new Movie() {Name = "OfferUp", Rate = 5};
+            Movie mThree = new Movie() {Name = "Crackers", Rate = 4};
+            Movie mFour = new Movie() {Name = "Lions king", Rate = 4};
+
+            List<Movie> list = new List<Movie>();
+            
+            list.Add(mOne);
+            list.Add(mTwo);
+            list.Add(mThree);
+            list.Add(mFour);
+
+            HashSet<Movie> mySet = list.OrderByDescending(m => m.Rate).Take(3).ToHashSet();
+            //SortedSet<>
+            //SortedDictionary<>
+
+            string oh = "423";
+            
+            Dictionary<string, int> ss = new Dictionary<string, int>();
+
+            foreach (Movie m in mySet)
+            {
+                //Console.WriteLine(m.Name + m.Rate);
+            }
+
+            string sad = "hello";
+            char wow = sad.ElementAt(0);
+            Console.WriteLine(wow);
+
+            // 10 
+            //Console.WriteLine(MissingNumber(new []{0,1,2,3,5,6}));
+
+            // 9 sliding window
+
+            // 8 nested Dictionaries - pretty print
+            //NestetedDictionaryOfferUp();
 
             // 7 - Nested Array - check if banana exists more than once
             //"banana", "peach", { "potato", "banana" }, "pine", "apple"
@@ -45,6 +81,7 @@ namespace AmazonPractice
             Console.ReadLine();
         }
 
+
         public void Notes()
         {
             // ---------------- NOTES ----------------
@@ -79,6 +116,77 @@ namespace AmazonPractice
             // Seperating strings by space or coma space
             List<string> names = new List<string>() { "John", "Anna", "Monica" };
             var delimitedString = String.Join(", ", names.ToArray());
+        }
+
+        // 10 - find missing number 1 2 3 5 6 7
+        public static int MissingNumber(int[] nums)
+        {
+            int result = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                result ^= i;
+                result ^= nums[i];
+            }
+            result ^= nums.Length;
+            return result;
+        }
+
+        // 9
+        public int[] MaxSlidingWindow(int[] nums, int k)
+        {
+            // calculate the ending array size using "nums length - k + 1" equation
+            int[] resultsArray = new int[nums.Length - k + 1];
+
+
+            List<int> checkingAgainst = new List<int>();
+            int j = 0;
+            for (j = 0; j < k; j++)
+            {
+                checkingAgainst.Add(nums[j]);
+            }
+            for (int i = 0; i < resultsArray.Length; i++)
+            {
+                int max = checkingAgainst.Max();
+                resultsArray[i] = max;
+                checkingAgainst.RemoveAt(1);
+                j++;
+                checkingAgainst.Add(nums[j]);
+            }
+            return resultsArray;
+        }
+
+        // 8 nested dictionary pretty print
+        private static void NestetedDictionaryOfferUp()
+        {
+            Dictionary<string, object> students = new Dictionary<string, object>();
+
+            Dictionary<string, object> nestedStudent = new Dictionary<string, object>();
+            nestedStudent.Add("Best Actor", 2018);
+
+            students.Add("Luay", 1);
+            students.Add("Brandon", nestedStudent);
+            students.Add("Ariel", 77);
+
+            Console.WriteLine("[");
+            foreach (KeyValuePair<string, object> student in students)
+            {
+                if (student.Value is Dictionary<string, object>)
+                {
+                    Dictionary<string, object> nesteDictionary = (Dictionary<string, object>)student.Value;
+                    Console.Write($"{student.Key}  : [ \n \t   \"{nesteDictionary.FirstOrDefault().Key} : " +
+                                  $"{nesteDictionary.FirstOrDefault().Value}\" \n \t   ]");
+                }
+                else
+                {
+                    Console.Write($"{student.Key} \t : {student.Value}");
+                }
+                if (!students[student.Key].Equals(students.Last().Value))
+                {
+                    Console.Write(",\n");
+                }
+            }
+
+            Console.Write("\n]");
         }
 
         // 7 - Nested List { {"banana"}, {"apple"}, { "peach", "pine" }, {"apple"}, {"banana"}}
