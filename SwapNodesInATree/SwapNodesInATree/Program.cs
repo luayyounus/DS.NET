@@ -49,6 +49,47 @@ namespace SwapNodesInATree
 
         public Node[] TwoNodes = new Node[2];
 
+        public void SwapWithQueue(Node root)
+        {
+            Queue<Node> q = new Queue<Node>();
+            q.Enqueue(root);
+            while (q.Count > 0)
+            {
+                Node temp = q.Dequeue();
+                if (temp.Left != null && temp.Left.Value == TwoNodes[0].Value)
+                {
+                    temp.Left = TwoNodes[1];
+                    //Node temp = TwoNodes[0];
+                    //TwoNodes[0] = TwoNodes[1];
+                    //TwoNodes[1] = temp;
+                }
+
+                if (temp.Right != null && temp.Right.Value == TwoNodes[0].Value)
+                {
+                    temp.Right = TwoNodes[1];
+                    //Node temp = TwoNodes[0];
+                    //TwoNodes[0] = TwoNodes[1];
+                    //TwoNodes[1] = temp;
+                }
+                if (temp.Left != null && temp.Left.Value == TwoNodes[1].Value)
+                {
+                    temp.Left = TwoNodes[0];
+                    //Node temp = TwoNodes[0];
+                    //TwoNodes[0] = TwoNodes[1];
+                    //TwoNodes[1] = temp;
+                }
+                if (temp.Right != null && temp.Right.Value == TwoNodes[1].Value)
+                {
+                    temp.Right = TwoNodes[0];
+                    //Node temp = TwoNodes[0];
+                    //TwoNodes[0] = TwoNodes[1];
+                    //TwoNodes[1] = temp;
+                }
+                if (temp.Left != null) q.Enqueue(temp.Left);
+                if (temp.Right != null) q.Enqueue(temp.Right);
+            }
+        }
+
         public void SwapTwoLeaves(Node root)
         {
             if (root == null) return;
@@ -68,19 +109,10 @@ namespace SwapNodesInATree
                 TwoNodes[1] = temp;
             }
             if (root.Left != null && root.Left.Value == TwoNodes[1].Value)
-            {
                 root.Left = TwoNodes[0];
-                Node temp = TwoNodes[0];
-                TwoNodes[0] = TwoNodes[1];
-                TwoNodes[1] = temp;
-            }
+
             if (root.Right != null && root.Right.Value == TwoNodes[1].Value)
-            {
                 root.Right = TwoNodes[0];
-                Node temp = TwoNodes[0];
-                TwoNodes[0] = TwoNodes[1];
-                TwoNodes[1] = temp;
-            }
 
             SwapTwoLeaves(root.Left);
             SwapTwoLeaves(root.Right);
