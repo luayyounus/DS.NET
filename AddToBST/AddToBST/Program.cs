@@ -25,11 +25,7 @@ namespace AddToBST
 
         public Node AddNumToBst(Node root, int x)
         {
-            if (root == null)
-            {
-                Node newNode = new Node(x);
-                root = newNode;
-            }
+            if (root == null) root = new Node(x);
 
             if (x < root.Value)
                 root.Left = AddNumToBst(root.Left, x);
