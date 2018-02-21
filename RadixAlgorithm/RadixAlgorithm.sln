@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadixAlgorithm", "RadixAlgorithm\RadixAlgorithm.csproj", "{12299E22-C01A-474A-89EF-8C814CCA9F81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12299E22-C01A-474A-89EF-8C814CCA9F81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12299E22-C01A-474A-89EF-8C814CCA9F81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12299E22-C01A-474A-89EF-8C814CCA9F81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12299E22-C01A-474A-89EF-8C814CCA9F81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DEF56A0-5D96-44B6-8C34-6763979C29F7}
+	EndGlobalSection
+EndGlobal
