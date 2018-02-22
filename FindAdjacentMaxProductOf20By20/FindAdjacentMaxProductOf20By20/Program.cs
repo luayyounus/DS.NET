@@ -49,13 +49,7 @@ namespace FindAdjacentMaxProductOf20By20
                 }
                 deadZoneIndex++;
             }
-
-            for(int i = deadZoneIndex; i < arr.Length; i++)
-            {
-                maxProduct = Math.Max(maxProduct, arr[i - 1,i] * arr[i,i] * arr[i+1,i] * arr[i+2,i]);
-                maxProduct = Math.Max(maxProduct, arr[i,i - 1] * arr[i, i] * arr[i,i + 1] * arr[i, i + 2]);
-            }
-
+           
             int d = deadZoneIndex;
 
             maxProduct = Math.Max(maxProduct, arr[d, d-1] * arr[d, d] * arr[d, d+1] * arr[d, d+2]);
